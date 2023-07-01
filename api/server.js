@@ -21,6 +21,10 @@ ref.on("value", (snapshot) => {
   console.log(snapshot.val());
 });
 
+app.get('/test', async (req, res) => {
+  res.json({"result":"success"})
+})
+
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
 });
