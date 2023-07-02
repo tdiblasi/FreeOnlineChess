@@ -175,8 +175,6 @@ function BoardSquare (props) {
             : '#553311'
   }
 
-  // console.log(props.data ? props.data.isWhite : '')
-
   if (squareInCheck && !props.checkMate) {
     if (isLightSquare) {
       return <BlinkingLightSquare
@@ -186,16 +184,16 @@ function BoardSquare (props) {
             props.grabPiece([props.file, props.rank])
           }
         }}
-        onTouchStart={() => {
-          if (props.data && !props.hide) {
-            props.grabPiece([props.file, props.rank])
-          }
-        }}
         onMouseUp={() => {
           props.moveHeld(
             props.file,
             props.rank
           )
+        }}
+        onTouchStart={() => {
+          if (props.data && !props.hide) {
+            props.grabPiece([props.file, props.rank])
+          }
         }}
         onTouchEnd={() => {
           console.log('touch end')
@@ -224,16 +222,16 @@ function BoardSquare (props) {
           props.grabPiece([props.file, props.rank])
         }
       }}
-      onTouchStart={() => {
-        if (props.data && !props.hide) {
-          props.grabPiece([props.file, props.rank])
-        }
-      }}
       onMouseUp={() => {
         props.moveHeld(
           props.file,
           props.rank
         )
+      }}
+      onTouchStart={() => {
+        if (props.data && !props.hide) {
+          props.grabPiece([props.file, props.rank])
+        }
       }}
       onTouchEnd={() => {
         console.log('touch end')
@@ -262,26 +260,26 @@ function BoardSquare (props) {
           props.grabPiece([props.file, props.rank])
         }
       }}
-      onTouchStart={() => {
-        if (props.data && !props.hide) {
-          props.grabPiece([props.file, props.rank])
-        }
-      }}
       onMouseUp={() => {
         props.moveHeld(
           props.file,
           props.rank
         )
       }}
-      onTouchEnd={() => {
-        console.log('touch end')
-        console.log(`${props.rank}${props.file}`)
-        console.log()
-        props.moveHeld(
-          props.file,
-          props.rank
-        )
-      }}
+      // onTouchStart={() => {
+      //   if (props.data && !props.hide) {
+      //     props.grabPiece([props.file, props.rank])
+      //   }
+      // }}
+      // onTouchEnd={() => {
+      //   console.log('touch end')
+      //   console.log(`${props.rank}${props.file}`)
+      //   console.log()
+      //   props.moveHeld(
+      //     props.file,
+      //     props.rank
+      //   )
+      // }}
       onMouseEnter={() => {
         props.setHover([props.file, props.rank])
       }}

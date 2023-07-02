@@ -81,27 +81,79 @@ const InitialBoard = [
   ]
 ]
 
+const InitialBoardData = {
+  squares: [
+    [
+      { piece: 'Rook', isWhite: false, id: 'black-rook-a', moved: false },
+      { piece: 'Knight', isWhite: false, id: 'black-knight-b' },
+      { piece: 'Bishop', isWhite: false, id: 'black-bishop-c' },
+      { piece: 'Queen', isWhite: false, id: 'black-queen' },
+      { piece: 'King', isWhite: false, id: 'black-king', moved: false },
+      { piece: 'Bishop', isWhite: false, id: 'black-bishop-f' },
+      { piece: 'Knight', isWhite: false, id: 'black-knight-g' },
+      { piece: 'Rook', isWhite: false, id: 'black-rook-h', moved: false }
+    ],
+    [
+      { piece: 'Pawn', isWhite: false, id: 'black-pawn-a' },
+      { piece: 'Pawn', isWhite: false, id: 'black-pawn-b' },
+      { piece: 'Pawn', isWhite: false, id: 'black-pawn-c' },
+      { piece: 'Pawn', isWhite: false, id: 'black-pawn-d' },
+      { piece: 'Pawn', isWhite: false, id: 'black-pawn-e' },
+      { piece: 'Pawn', isWhite: false, id: 'black-pawn-f' },
+      { piece: 'Pawn', isWhite: false, id: 'black-pawn-g' },
+      { piece: 'Pawn', isWhite: false, id: 'black-pawn-h' }
+    ],
+    [
+      null, null, null, null, null, null, null, null
+    ],
+    [
+      null, null, null, null, null, null, null, null
+    ],
+    [
+      null, null, null, null, null, null, null, null
+    ],
+    [
+      null, null, null, null, null, null, null, null
+    ],
+    [
+      { piece: 'Pawn', isWhite: true, id: 'white-pawn-a' },
+      { piece: 'Pawn', isWhite: true, id: 'white-pawn-b' },
+      { piece: 'Pawn', isWhite: true, id: 'white-pawn-c' },
+      { piece: 'Pawn', isWhite: true, id: 'white-pawn-d' },
+      { piece: 'Pawn', isWhite: true, id: 'white-pawn-e' },
+      { piece: 'Pawn', isWhite: true, id: 'white-pawn-f' },
+      { piece: 'Pawn', isWhite: true, id: 'white-pawn-g' },
+      { piece: 'Pawn', isWhite: true, id: 'white-pawn-h' }
+    ],
+    [
+      { piece: 'Rook', isWhite: true, id: 'white-rook-a', moved: false },
+      { piece: 'Knight', isWhite: true, id: 'white-knight-b' },
+      { piece: 'Bishop', isWhite: true, id: 'white-bishop-c' },
+      { piece: 'Queen', isWhite: true, id: 'white-queen' },
+      { piece: 'King', isWhite: true, id: 'white-king', moved: false },
+      { piece: 'Bishop', isWhite: true, id: 'white-bishop-f' },
+      { piece: 'Knight', isWhite: true, id: 'white-knight-g' },
+      { piece: 'Rook', isWhite: true, id: 'white-rook-h', moved: false }
+    ]
+  ],
+  enPassantable: [],
+  whitesTurn: true,
+  check: false,
+  gameOver: ''
+}
+
+// king queen vs king
 // const InitialBoardData = {
 //   squares: [
 //     [
-//       { piece: 'Rook', isWhite: false, id: 'black-rook-a', moved: false },
-//       { piece: 'Knight', isWhite: false, id: 'black-knight-b' },
-//       { piece: 'Bishop', isWhite: false, id: 'black-bishop-c' },
-//       { piece: 'Queen', isWhite: false, id: 'black-queen' },
+//       null,
+//       null,
+//       null,
+//       null,
 //       { piece: 'King', isWhite: false, id: 'black-king', moved: false },
-//       { piece: 'Bishop', isWhite: false, id: 'black-bishop-f' },
-//       { piece: 'Knight', isWhite: false, id: 'black-knight-g' },
-//       { piece: 'Rook', isWhite: false, id: 'black-rook-h', moved: false }
-//     ],
-//     [
-//       { piece: 'Pawn', isWhite: false, id: 'black-pawn-a' },
-//       { piece: 'Pawn', isWhite: false, id: 'black-pawn-b' },
-//       { piece: 'Pawn', isWhite: false, id: 'black-pawn-c' },
-//       { piece: 'Pawn', isWhite: false, id: 'black-pawn-d' },
-//       { piece: 'Pawn', isWhite: false, id: 'black-pawn-e' },
-//       { piece: 'Pawn', isWhite: false, id: 'black-pawn-f' },
-//       { piece: 'Pawn', isWhite: false, id: 'black-pawn-g' },
-//       { piece: 'Pawn', isWhite: false, id: 'black-pawn-h' }
+//       null,
+//       null,
+//       null
 //     ],
 //     [
 //       null, null, null, null, null, null, null, null
@@ -116,24 +168,20 @@ const InitialBoard = [
 //       null, null, null, null, null, null, null, null
 //     ],
 //     [
-//       { piece: 'Pawn', isWhite: true, id: 'white-pawn-a' },
-//       { piece: 'Pawn', isWhite: true, id: 'white-pawn-b' },
-//       { piece: 'Pawn', isWhite: true, id: 'white-pawn-c' },
-//       { piece: 'Pawn', isWhite: true, id: 'white-pawn-d' },
-//       { piece: 'Pawn', isWhite: true, id: 'white-pawn-e' },
-//       { piece: 'Pawn', isWhite: true, id: 'white-pawn-f' },
-//       { piece: 'Pawn', isWhite: true, id: 'white-pawn-g' },
-//       { piece: 'Pawn', isWhite: true, id: 'white-pawn-h' }
+//       null, null, null, null, null, null, null, null
 //     ],
 //     [
-//       { piece: 'Rook', isWhite: true, id: 'white-rook-a', moved: false },
-//       { piece: 'Knight', isWhite: true, id: 'white-knight-b' },
-//       { piece: 'Bishop', isWhite: true, id: 'white-bishop-c' },
+//       null, null, null, null, null, null, null, null
+//     ],
+//     [
+//       null,
+//       null,
+//       null,
 //       { piece: 'Queen', isWhite: true, id: 'white-queen' },
 //       { piece: 'King', isWhite: true, id: 'white-king', moved: false },
-//       { piece: 'Bishop', isWhite: true, id: 'white-bishop-f' },
-//       { piece: 'Knight', isWhite: true, id: 'white-knight-g' },
-//       { piece: 'Rook', isWhite: true, id: 'white-rook-h', moved: false }
+//       null,
+//       null,
+//       null
 //     ]
 //   ],
 //   enPassantable: [],
@@ -141,54 +189,6 @@ const InitialBoard = [
 //   check: false,
 //   gameOver: false
 // }
-
-// king queen vs king
-const InitialBoardData = {
-  squares: [
-    [
-      null,
-      null,
-      null,
-      null,
-      { piece: 'King', isWhite: false, id: 'black-king', moved: false },
-      null,
-      null,
-      null
-    ],
-    [
-      null, null, null, null, null, null, null, null
-    ],
-    [
-      null, null, null, null, null, null, null, null
-    ],
-    [
-      null, null, null, null, null, null, null, null
-    ],
-    [
-      null, null, null, null, null, null, null, null
-    ],
-    [
-      null, null, null, null, null, null, null, null
-    ],
-    [
-      null, null, null, null, null, null, null, null
-    ],
-    [
-      null,
-      null,
-      null,
-      { piece: 'Queen', isWhite: true, id: 'white-queen' },
-      { piece: 'King', isWhite: true, id: 'white-king', moved: false },
-      null,
-      null,
-      null
-    ]
-  ],
-  enPassantable: [],
-  whitesTurn: true,
-  check: false,
-  gameOver: false
-}
 
 async function getNewBoard () {
   const newBoard = []
